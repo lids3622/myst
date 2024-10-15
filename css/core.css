@@ -261,7 +261,8 @@ p{
 }
 
 img{
-  border:0;
+  border:2;
+  max-width:758px;
 }
 
 .maybe-scale img{

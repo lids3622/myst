@@ -20,17 +20,18 @@
     <div id="mask-1">
 
       <!-- primary content -->
+
       <div id="primary-content">
         <div class="blocks clear-block">
 
           <?php atom()->action('before_primary'); ?>
-
+Page Navigation <?php wp_pagenavi(); ?>
           <?php if(have_posts()): ?>
           <div class="posts clear-block">
             <?php while(have_posts()) atom()->template('teaser'); ?>
           </div>
-
-          <?php atom()->pagination(); ?>
+Page Navigation <?php wp_pagenavi(); ?>
+          <?php //atom()->pagination(); ?>
 
           <?php else: ?>
           <h1 class="title error"><?php atom()->te('Oops, nothing here :('); ?></h1>

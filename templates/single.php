@@ -14,6 +14,8 @@
 
 <?php atom()->template('header'); ?>
 
+    <?php if (function_exists (horizontal_scrolling_announcement)) horizontal_scrolling_announcement(); ?>
+
 <!-- main content: primary + sidebar(s) -->
 <div id="mask-3" class="clear-block">
   <div id="mask-2">
@@ -35,25 +37,76 @@
           <?php atom()->action('before_post'); ?>
 
           <!-- post content -->
+           
+               <h4>
+
+                	<?php if(function_exists('bcn_display'))
+
+					{
+
+						bcn_display();
+
+					}?>
+
+                </h4>
+
           <div id="post-<?php the_ID(); ?>" <?php post_class('primary'); ?>>
 
             <?php if(!atom()->post->getMeta('hide_title')): ?>
             <h1 class="title"><?php atom()->post->Title(); ?></h1>
             <?php endif; ?>
 
-            <div class="post-content clear-block">
-              <?php the_content(); ?>
-            </div>
+<h4><?php echo get_the_term_list( get_the_ID(), 'MovieCollection', "MovieCollection: " , ', ', '') ?></h4>
 
-            <?php atom()->post->pagination(); ?>
+<h4><?php echo get_the_term_list( get_the_ID(), 'MovieFirstLetter', "MovieFirstLetter: " , ', ', '') ?></h4>
 
-            <?php if(atom()->post->getTerms()): ?>
+<h4><?php echo get_the_term_list( get_the_ID(), 'MovieGenre', "MovieGenre: " , ', ', '') ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'ReleasedIn', "ReleasedIn: " ) ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'MovieIMDB', "MovieIMDB: " , ', ', '') ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'Director', "Director: " , ', ', '') ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'FirstLetter', "FirstLetter: " , ', ', '') ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'AiredOn', "AiredOn: " , ', ', '') ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'Network', "Network: " ) ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'TVShowGenre', "TVShowGenre: " , ', ', '') ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'TVShowIMDB', "TVShowIMDB: " ) ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'ProgramCreator', "ProgramCreator: " , ', ', '') ?></h4>
+
+<h4><?php echo get_the_term_list( get_the_ID(), 'Stars', "Stars: " , ', ', '') ?></h4>
+
+ <?php if(atom()->post->getTerms()): ?>
             <div class="post-extra clear-block">
               <div class="post-tags">
                 <?php atom()->post->Terms(); ?>
               </div>
             </div>
             <?php endif; ?>
+
+            <div class="post-content clear-block">
+              <?php the_content(); ?>
+            </div>
+
+            <h4>
+
+                	<?php if(function_exists('bcn_display'))
+
+					{
+
+						bcn_display();
+
+					}?>
+
+                </h4>
+
+           
 
             <?php if(!post_password_required()): ?>
             <div class="post-meta">

@@ -25,7 +25,7 @@
 
   // max. # of tags
   $number = atom()->post->getMeta('number');
-  $number = $number ? (int)$number : 200;
+  $number = $number ? (int)$number : 500;
 
 ?>
 
